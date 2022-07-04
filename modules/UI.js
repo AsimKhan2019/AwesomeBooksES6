@@ -22,9 +22,11 @@ export default class UI {
 
   static addToList(bookObj) {
     let deserializedBookList = Storage.getData('bookList');
-    deserializedBookList.push(bookObj);
-    Storage.saveData(deserializedBookList);
-    UI.getBookList();
+    if (deserializedBookList !== null) {
+      deserializedBookList.push(bookObj);
+      Storage.saveData(deserializedBookList);
+      UI.getBookList();
+    }
   }
 
   static removeFromList(e) {
