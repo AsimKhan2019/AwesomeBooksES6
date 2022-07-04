@@ -2,7 +2,7 @@ import Books from './modules/Books.js';
 import UI from './modules/UI.js';
 import Storage from './modules/BookStorage.js';
 import Navigation from './modules/Navigation.js';
-import {DateTime} from './modules/Luxon.js';
+import { DateTime } from './modules/Luxon.js';
 
 const navList = document.querySelector('.nav-list');
 const btnSubmit = document.querySelector('.submit');
@@ -46,13 +46,13 @@ btnSubmit.addEventListener('click', () => {
 
 // Remove Data Event Handler
 bookDisplay.addEventListener(
-    'click',
-    (e) => {
-      if (e.target.tagName === 'BUTTON') {
-        UI.removeFromList(e);
-      }
-    },
-    true,
+  'click',
+  (e) => {
+    if (e.target.tagName === 'BUTTON') {
+      UI.removeFromList(e);
+    }
+  },
+  true,
 );
 
 // Load Data Initially if there is any
