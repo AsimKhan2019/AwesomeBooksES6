@@ -1,6 +1,6 @@
 export default class BookStorage {
   static saveData(dataObj) {
-    let dataString = JSON.stringify(dataObj);
+    const dataString = JSON.stringify(dataObj);
     localStorage.setItem('bookList', dataString);
   }
 

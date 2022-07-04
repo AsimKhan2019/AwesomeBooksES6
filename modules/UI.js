@@ -3,7 +3,7 @@ import Storage from './BookStorage.js';
 export default class UI {
   static getBookList() {
     let books = ' ';
-    let deserializedBookList = Storage.getData('bookList');
+    const deserializedBookList = Storage.getData('bookList');
 
     deserializedBookList.forEach((value) => {
       books += `
@@ -22,8 +22,9 @@ export default class UI {
 
   static addToList(bookObj) {
     let deserializedBookList = Storage.getData('bookList');
-    if(deserializedBookList == null)
+    if (deserializedBookList == null) {
       deserializedBookList = [];
+    }
     deserializedBookList.push(bookObj);
 
     Storage.saveData(deserializedBookList);
@@ -31,12 +32,12 @@ export default class UI {
   }
 
   static removeFromList(e) {
-    let currentDiv = e.target.parentElement;
+    const currentDiv = e.target.parentElement;
     currentDiv.parentElement.removeChild(currentDiv);
 
-    let bookId = parseInt(currentDiv.dataset.id, 10);
-    let bookList = Storage.getData('bookList');
-    let temp = bookList.filter((item) => item.bookid !== bookId);
+    const bookId = parseInt(currentDiv.dataset.id, 10);
+    const bookList = Storage.getData('bookList');
+    const temp = bookList.filter((item) => item.bookid !== bookId);
 
     Storage.saveData(temp);
     UI.getBookList();

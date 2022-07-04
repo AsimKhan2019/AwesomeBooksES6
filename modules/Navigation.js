@@ -7,7 +7,7 @@ export default class Navigation {
       }
     }
   }
-  
+
   static showSection(section) {
     const s = document.querySelector(section);
     Navigation.hideAllSections();

@@ -2,15 +2,11 @@ import Books from './modules/Books.js';
 import UI from './modules/UI.js';
 import Storage from './modules/BookStorage.js';
 import Navigation from './modules/Navigation.js';
-import { DateTime } from './modules/Luxon.js';
+import {DateTime} from './modules/Luxon.js';
 
 const navList = document.querySelector('.nav-list');
 const btnSubmit = document.querySelector('.submit');
 const bookDisplay = document.querySelector('.book-display');
-
-
-
-//UI.getBookList();
 
 navList.addEventListener('click', (e) => {
   if (e.target.id === 'list') {
@@ -34,14 +30,14 @@ btnSubmit.addEventListener('click', () => {
   bookListObj = Storage.getData('bookList');
 
   if (bookListObj !== null && bookListObj.length > 0) {
-    let lastObject = bookListObj[bookListObj.length - 1];
+    const lastObject = bookListObj[bookListObj.length - 1];
     bookid = lastObject.bookid + 1;
   } else {
     bookid = 1;
     bookListObj = [];
   }
 
-  let addBook = new Books(bookid, title, author);
+  const addBook = new Books(bookid, title, author);
   UI.addToList(addBook);
 
   document.querySelector('.form-title').value = '';
@@ -50,13 +46,13 @@ btnSubmit.addEventListener('click', () => {
 
 // Remove Data Event Handler
 bookDisplay.addEventListener(
-  'click',
-  (e) => {
-    if (e.target.tagName === 'BUTTON') {
-      UI.removeFromList(e);
-    }
-  },
-  true,
+    'click',
+    (e) => {
+      if (e.target.tagName === 'BUTTON') {
+        UI.removeFromList(e);
+      }
+    },
+    true,
 );
 
 // Load Data Initially if there is any
@@ -67,6 +63,6 @@ if (key) {
 
 // show time
 const showTime = document.querySelector('.show-time');
-let dt = DateTime.local();
+const dt = DateTime.local();
 showTime.innerHTML = dt.toISO();
 
