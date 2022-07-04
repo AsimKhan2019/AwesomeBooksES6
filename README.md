@@ -12,7 +12,7 @@
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://gak92.github.io/awesome_books/)
+[Live Demo Link][([(https://asimkhan2019.github.io/AwesomeBooksES6/)])]
 
 
 ## Getting Started
